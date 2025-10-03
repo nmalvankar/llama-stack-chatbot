@@ -1,0 +1,28 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: llama-stack-chatbot-build
+  labels:
+    app: llama-stack-chatbot
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/your-username/llama-stack-chatbot.git
+      ref: main
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: llama-stack-chatbot:latest
+  triggers:
+  - type: ConfigChange
+  - type: GitHub
+    github:
+      secret: github-webhook-secret
+  - type: Generic
+    generic:
+      secret: generic-webhook-secret

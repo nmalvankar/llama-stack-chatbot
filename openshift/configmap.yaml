@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chatbot-config
+  labels:
+    app: llama-stack-chatbot
+data:
+  mcp-endpoint: "http://your-k8s-mcp-server:8080/sse"
+  cors-origins: "https://your-chatbot-route.apps.your-cluster.com"
