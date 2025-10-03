@@ -480,7 +480,19 @@ async def websocket_endpoint(websocket: WebSocket):
                 
                 # Get response from agent
                 try:
+                    # Send initial processing message
+                    await manager.send_personal_message(
+                        json.dumps({"type": "message_chunk", "content": "Please wait while I process your request...\n\n"}),
+                        websocket
+                    )
+                    
                     response = await agent.chat(user_message)
+                    
+                    # Clear the initial message by sending an empty chunk
+                    await manager.send_personal_message(
+                        json.dumps({"type": "message_chunk", "content": ""}),
+                        websocket
+                    )
                     
                     # Send response as chunks for better UX
                     words = response.split()

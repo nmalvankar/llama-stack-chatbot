@@ -26,7 +26,7 @@ class SimpleLlamaStackAgent:
         try:
             # Configure Google Gemini
             genai.configure(api_key=settings.google_api_key)
-            self.gemini_model = genai.GenerativeModel('gemini-flash-latest')
+            self.gemini_model = genai.GenerativeModel('gemini-2.5-flash-lite')
             
             # Initialize MCP client for tools
             self.mcp_client = SimpleMCPClient(
