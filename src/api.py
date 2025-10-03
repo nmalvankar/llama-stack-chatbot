@@ -280,8 +280,8 @@ async def get_index():
     <body>
         <div class="chat-container">
             <div class="chat-header">
-                <h1>🤖 Llama Stack Chatbot</h1>
-                <p>Powered by Google Gemini & MCP Tools</p>
+                <h1>Shadow Protocol Chatbot</h1>
+                <p>Powered by Llama Stack, LLM & OpenShift MCP Server</p>
             </div>
             
             <div class="connection-status" id="connectionStatus">
@@ -291,7 +291,7 @@ async def get_index():
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
                     <div class="message-content">
-                        Hello! I'm your AI assistant powered by Llama Stack and Google Gemini. I have access to various tools through MCP. How can I help you today?
+                        Hello! I'm your AI assistant powered by Llama Stack and OpenShift MCP Server. How can I help you today?
                     </div>
                 </div>
             </div>
